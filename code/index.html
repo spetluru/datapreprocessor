@@ -1,0 +1,155 @@
+<!DOCTYPE HTML>
+<!--
+	Overflow 1.1 by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Overflow by HTML5 UP</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,300italic" rel="stylesheet" type="text/css" />
+		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.poptrox.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/init.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel-noscript.css" />
+			<link rel="stylesheet" href="css/style.css" />
+		</noscript>
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+		<script type="text/javascript" src="jquery-1.9.js"></script>
+    		<SCRIPT language="javascript">
+	//FUNCTION TO ADD TEXT BOX ELEMENT
+function changeIt()
+{
+var i = 1;
+my_div.innerHTML = my_div.innerHTML +"<br><input type='text' name='mytext'+ i style='text-align:center;color:#35b882;font-size:14 em; font-weight:bolder;border-color:white;'>"
+
+}
+</SCRIPT>
+	</head>
+	<body>
+
+		<!-- Header -->
+			<section id="header">
+				<header>
+					<h1>Prepper</h1>
+					<p>An efficient data preprocessor</p>
+				</header>
+				<footer>
+					<a href="#banner" class="button style2 scrolly scrolly-centered">1. DATA INTEGRATION</a>
+				</footer>
+			</section>
+		
+		<!-- Banner -->
+			<section id="banner">
+				<header>
+					<h2>Integration</h2>
+				</header>
+				<p>Please enter the name of the file/s that you would like to integrate: &nbsp;<input type="button" name = "b" class = "button style2" style="height:50px;width:100px; padding:0em;vertical-align:middle;" id="b" value="add"  onClick= "changeIt()"/> </p>
+<form name="files"  action="/miniproject/IntegrateServlets"method="get">
+<div id="my_div">&nbsp;
+</div>								
+				<footer align="center"><a href="#first"><input type="submit" class="button style2 scrolly scrolly-centered " value="Proceed"/></a></footer>
+</form>
+				
+			       
+			</section>
+                      <section name="first" id ="first">                          
+                       <article  class="container box style2">
+				<header>
+					<h2>Integration is successful</h2>
+					<p> All the files have been merged into a single file.</p>
+                                        The database has been created and the data in the file has been inserted into the data table.
+                                             </header>
+                                   <footer>    <a href="#second" class="button style2  scrolly scrolly-centered">2.DATA CLEANING</a></footer>
+				
+                              </section>  
+					
+				
+                      </article>
+		<section id="second" name="second">
+<!-- Feature 1 -->
+			<article id="scond" class="container box style1 right" background-image="images/pic02.jpg">
+				<div class="outer">
+					<header>
+						<h2>Data Cleaning</h2>
+					</header>
+					<p>Here the file will undergo cleaning. Please select the value to replace missing values with: </p>
+					<form name="files" action="/miniproject/CleanServlet" method="get"><div align="center"><select name ="type" style="width:20%;align:center;color:#35b882;border-color:#35b882;padding:2px;"><option value="mean">mean</option><option value="median">median</option><option value="mode">mode</option></select></div>
+<footer align="center"><input type="submit" class="button style2 scrolly scrolly-centered" style="color:#ffffff;background:#35b882;" value="Proceed"/>
+</footer></form>
+				
+                                        
+				</div>
+			</article>
+</section>
+<section name="third" id="third">
+		 <article id="thrd" class="container box style2">
+				<header>
+					<h2>Cleaning is successful</h2>
+					<p> All missing values in each column have been replaced by the selected value</p>
+                                        The data is now complete for further processing.
+                                             </header>
+                                   <footer>    <a href="#fourth" class="button style2 scrolly scrolly-centered">3.DATA TRANSFORMATION</a></footer>
+					
+                      </article>
+</section>
+<section id="fourth" name="fourth">		   
+   <article id="forth" class="container box style1 right" background-image="images/pic02.jpg">
+				<div class="outer">
+					<header>
+						<h2>Data Transformation</h2>
+					</header>
+					<p>Here the file will undergo transformation. Please select the kind of normalization technique: </p>
+					<form name="files" action="/miniproject/TransformServlet" method="get"><div align="center"><select name ="type1" style="width:40%;align:center;color:#35b882;border-color:#35b882;padding:2px;"><option value="dscaling" selected>Decimal Scaling</option><option value="minmax">Min Max normalization</option><option value="zscore">Z-score normalization</option></select></div>Enter the column number that you want to transform: <input name="col" type="text"/>
+<footer align="center"><input type="submit" class="button style2 scrolly scrolly-centered" style="color:#ffffff;background:#35b882;" value="Proceed"/></footer>
+</form>
+				
+                                        
+				</div>
+			</article>
+</section>
+<section id="fifth" name="fifth">
+		        <article id="ffth" class="container box style2">
+				<header>
+					<h2>Transformation is successful</h2>
+					<p> All values in each column have been normalized by the selected technique</p>
+                                        The data is ready to be written out to a file.
+                                             </header>
+                                   <footer>    <a href="#final" class="button style2  scrolly scrolly-centered">4.OUTPUT</a></footer>
+					
+                      </article>
+</section>
+<section id="final" name="final">
+                       <article id="fnal" class="container box style2">
+				<div class="outer">
+				<header>
+					<h2>Enter path of output file:</h2>
+					<form name="f" action="/miniproject/OutputServlet"method="get">
+					 <input type="text" name="opfile"/>
+                                        
+                                             </header>
+                                   <footer><input type="submit" class="button style2 scrolly scrolly-centered" value="Proceed"/></footer></form>
+			</div>	
+                                
+					
+				
+                      </article>
+</section>
+<section id="end" name="end">
+                      <article id="edn" class="container box style2">
+				<header>
+					<h2>Output file successfully created</h2>
+				
+                                             </header>
+                                 
+					
+                      </article>
+</section>
+	</body>
+</html>
